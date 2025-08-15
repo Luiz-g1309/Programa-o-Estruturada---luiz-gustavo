@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main(){
+    double salario, imposto = 0.0, aliquota = 0.0, deducao = 0.0;
+    
+    printf("Informe seu salário: \n");
+    scanf("%lf", &salario);
+
+    if (salario <= 2259.20){
+        aliquota = 0.0;
+        deducao = 0.0;
+    } else if (salario <= 2826.65){
+        aliquota = 0.075;
+        deducao = 169.44;
+    } else if (salario <= 3751.05){
+        aliquota = 0.15;
+        deducao = 381.44;
+    } else if (salario <= 4664.68){ 
+        aliquota = 0.225;
+        deducao = 662.77;
+    } else {
+        aliquota = 0.275;
+        deducao = 896.00;
+    }
+
+    imposto = (salario * aliquota) - deducao;
+
+    if (imposto < 0)
+        imposto = 0.0;
+
+    printf("Imposto de renda mensal:R$ %.2f\n", imposto);
+
+    return 0;
+}  
